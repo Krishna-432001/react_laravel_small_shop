@@ -11,9 +11,11 @@ const HomePage = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+    const API_URL = import.meta.env.VITE_API_BASE_URL;
+
     useEffect(() => {
         // Fetch categories (assuming categories have a similar structure)
-        axios.get('http://192.168.1.111:8000/api/categories')
+        axios.get(`${API_URL}/categories`)
             .then(response => {
                 const data = response.data;
                 if (Array.isArray(data.data)) {
@@ -30,7 +32,7 @@ const HomePage = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await axios.get('http://192.168.1.111:8000/api/products', {
+                const response = await axios.get(`${API_URL}/products`, {
                     params: { search, category }
                 });
                 const data = response.data;
