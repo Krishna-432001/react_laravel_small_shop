@@ -8,6 +8,7 @@ import ForgetPassword from './components/frontend/auth/ForgetPassword'
 import Profile from './components/frontend/auth/Profile'
 import AppLayout from './components/frontend/layout/AppLayout';
 import Cart from './components/frontend/Cart';
+import ProductDetail from './components/frontend/ProductDetail';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/categories" element={<CategoryPage />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
