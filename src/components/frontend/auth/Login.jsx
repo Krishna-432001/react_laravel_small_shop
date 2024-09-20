@@ -47,7 +47,12 @@ const Login = () => {
                         device_name: deviceName }),
                 });
 
+                // 
                 const data = await response.text();
+
+                // Changed to response.json() to parse the JSON
+                // const data = await response.json();
+
                 setLoading(false);
                 console.log(response);
                 
@@ -59,6 +64,12 @@ const Login = () => {
 
                     // Example: Logging token or other response data
                     console.log('Token:', data);
+
+                    // Save the token in localStorage
+                    localStorage.setItem('token', data); 
+
+                    // Redirect or update the authenticated state as needed
+                    window.location.href = '/'; // Redirect to home or dashboard after login
                 } else {
                     setMessage('Login failed. Please try again.');
                     setErrors(data.errors || {});
